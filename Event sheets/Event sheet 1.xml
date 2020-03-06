@@ -2,5 +2,74 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
-    <events />
+    <events>
+        <variable constant="0" name="pontos" sid="820383237696083" static="0" type="number">0</variable>
+        <event-block sid="145881869974758">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="743206848408531" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="647006630493327" type="Placar">
+                    <param id="0" name="Pin to">personagem</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="733714421653426" type="heroanimation">
+                    <param id="0" name="Object">personagem</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="758026875351127" type="heroanimation">
+                    <param id="0" name="Pin to">personagem</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="807644455528929">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="811566795091074" type="personagem">
+                    <param id="0" name="Object">Inimigo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="411147025960441" type="Inimigo" />
+            </actions>
+        </event-block>
+        <event-block sid="981796249831110">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="295201534714328" type="personagem">
+                    <param id="0" name="Object">Moeda</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="177491998544256" type="Moeda" />
+                <action id="-10" name="Add to" sid="536138296651359" type="System">
+                    <param id="0" name="Variable">pontos</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="352969437632997">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="360604118052251" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="673842526740071" type="Placar">
+                    <param id="0" name="Text">&quot;Pontos: &quot;&amp;pontos</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="995897792821296">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="116922974122789" type="personagem">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">1500</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="314956393310061" type="System" />
+                <action id="-9" name="Destroy" sid="109448751073919" type="personagem" />
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>
